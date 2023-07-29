@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ping Game</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: url("blur_cyan.jpg");
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      backdrop-filter: blur(50px);
+    }
+
+    .game-container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border: 2px solid #333;
+      overflow: hidden;
+      background-color: #f0f0f0;
+    }
+
+    .ball {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #333;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .paddle {
+      position: absolute;
+      width: 100px;
+      height: 20px;
+      background-color: #333;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .scoreboard {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #333;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <div class="ball"></div>
+    <div class="paddle" id="paddle"></div>
+    <div class="scoreboard" id="scoreboard">Player A: 0  Player B: 0</div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const ball = document.querySelector(".ball");
+      const paddle = document.getElementById("paddle");
+      const gameContainer = document.querySelector(".game-container");
+      const scoreboard = document.getElementById("scoreboard");
+
+      let ballX = 200;
+      let ballY = 200;
+      let ballSpeedX = 3; // Increase ball speed
+      let ballSpeedY = 3; // Increase ball speed
+      let paddleX = 200;
+      let paddleSpeed = 0;
+
+      function moveBall() {
+        ballX += ballSpeedX;
+        ballY += ballSpeedY;
+        ball.style.left = ballX + "px";
+        ball.style.top = ballY + "px";
+
+        // Check collision with walls
+        if (ballX >= 380 || ballX <= 0) {
+          ballSpeedX = -ballSpeedX;
+        }
+
+        if (ballY <= 0) {
+          ballSpeedY = -ballSpeedY;
+        }
+
+        // Check collision with paddle
+        if (
+          ballY >= gameContainer.clientHeight - 30 &&
+          ballX + 20 >= paddleX &&
+          ballX <= paddleX + 100
+        ) {
+          ballSpeedY = -ballSpeedY;
+          // Increase ball speed on paddle collision
+          ballSpeedX += Math.sign(ballSpeedX) * 0.2;
+          ballSpeedY += Math.sign(ballSpeedY) * 0.2;
+        }
+
+        // Check if ball goes out of the game container
+        if (ballY >= gameContainer.clientHeight) {
+          gameOver();
+        }
+      }
+
+      function movePaddle(e) {
+        let prevPaddleX = paddleX;
+        paddleX = e.clientX - gameContainer.offsetLeft;
+        if (paddleX < 0) {
+          paddleX = 0;
+        } else if (paddleX > gameContainer.clientWidth - 100) {
+          paddleX = gameContainer.clientWidth - 100;
+        }
+        paddleSpeed = paddleX - prevPaddleX; // Calculate paddle speed
+        paddle.style.left = paddleX + "px";
+      }
+
+      function gameOver() {
+        ballX = 200;
+        ballY = 200;
+        ballSpeedX = 3; // Reset ball speed
+        ballSpeedY = 3; // Reset ball speed
+      }
+
+      // Move paddle on mouse move
+      gameContainer.addEventListener("mousemove", movePaddle);
+
+      function gameLoop() {
+        moveBall();
+        requestAnimationFrame(gameLoop);
+      }
+
+      gameLoop();
+    });
+  </script>
+</body>
+</html>
