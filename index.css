@@ -1,0 +1,129 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 3s ease-out;
+}
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(218, 233, 255);
+}
+
+#pfp img{
+    height: 300px;
+    width: 300px;
+    border-radius: 20px;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+#pfp img:hover {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+}
+#pfp h1{
+    font-family: 'Courier New', Courier, monospace;
+}
+#programming {
+    background-color: bisque;
+    border-radius: 20px;
+    border-bottom: blue 5px solid;
+    margin: 30px;
+    padding: 10px;
+    box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+}
+#lang {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#pro_l {
+    font-size: 30px;
+    font-style: italic;
+}
+#programming:hover {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+}
+#projects {
+    background-color: rgb(217, 217, 217);
+    border-radius: 20px;
+    border-bottom: blue 5px solid;
+    box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+#project-description div {
+    background-color: rgb(255, 246, 227);
+    margin: 20px;
+    border-radius: 30px;
+    width: 350px;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+#project-description div:hover {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+}
+#project-description h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#project-description h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#project-heading {
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}
+
+#certificate {
+    background-color: bisque;
+    border-radius: 20px;
+    border-bottom: blue 5px solid;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#certificate h1 {
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#contacts {
+    border-radius: 20px;
+    background-color: rgb(209 209 209);
+    margin: 20px;
+    padding: 10px;
+}
+
+#contact_information {
+    background-color:cyan ;
+    height: 352px;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+    margin: 10px;
+}
+#contact_information:hover {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+}
+
+#contact_me {
+    background-color: aquamarine;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+    margin: 10px;
+}
+#contact_me:hover {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+}
