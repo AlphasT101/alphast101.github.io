@@ -17,7 +17,27 @@ body {
 #pfp h1{
     font-family: 'Courier New', Courier, monospace;
 }
-
+#programming {
+    background-color: bisque;
+    border-radius: 20px;
+    border-bottom: blue 5px solid;
+    margin: 30px;
+    padding: 10px;
+    box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out;
+}
+#lang {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#pro_l {
+    font-size: 30px;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#programming:hover {
+    transform: scale(1.05); /* Adjust the scale factor as needed */
+}
 #projects {
     background-color: rgb(217, 217, 217);
     border-radius: 20px;
@@ -60,8 +80,9 @@ body {
 
 #certificate h1 {
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #contacts {
